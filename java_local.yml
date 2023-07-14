@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+   - name: update package manager cache
+     become: true
+
+     apt:
+       update_cache: yes
+   - name: Task 2 is to install java using Ansible
+     become: yes
+     apt:
+       name: "{{ packages }}"
+       state: present
+
+     vars:
+       packages:
+         - "openjdk-11-jdk"
+
+
