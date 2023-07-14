@@ -8,10 +8,9 @@
   vars:
     region: us-east-1
     instance_ids:
-      - i-011b3d3c00a90fad6
-      - i-0ce1bf829977141fc
-      - i-0e857245f4f02378a
-      - i-0d95ae83b3b1c66e8
+      - i-039e389dc5aa97e4b
+      - i-09dca7ad1b1451575
+     
 
 
   tasks:
