@@ -1,0 +1,22 @@
+---
+- name: terminate Ec2 specified instances
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+
+  vars:
+    region: us-east-1
+    instance_ids:
+      - i-011b3d3c00a90fad6
+      - i-0ce1bf829977141fc
+      - i-0e857245f4f02378a
+      - i-0d95ae83b3b1c66e8
+
+
+  tasks:
+    - name: myTargetEc2instances
+      ec2_instance:
+        region: "{{ region }}"
+        instance_ids: "{{ instance_ids }}"
+        state: absent

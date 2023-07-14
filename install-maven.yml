@@ -1,0 +1,14 @@
+---
+- hosts: My_Group
+
+  tasks:
+    - name: install maven on instances
+      become: yes
+
+      apt:
+        name: "{{ packages }}"
+        state: present
+
+      vars:
+        packages:
+          - "maven"
