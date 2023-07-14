@@ -1,0 +1,20 @@
+---
+- hosts: My_Group
+  
+  tasks:
+    - name: install the lamp stack
+      become: true
+      
+      apt:
+         update_cache: yes
+    - name: Task 2 - install lamp using Ansible
+      become: yes
+      
+      apt:
+        name: {{ packages }}
+        state: present
+      vars:
+        packages:
+          - apache2
+          - mysql-server
+          - php

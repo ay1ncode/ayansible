@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: False
+
+  tasks:
+    - name: Tasks 1 installing jenkins on local instance
+      become:  true
+      apt_key: url=https://pkg.jenkins.io/debian/jenkins.io-2023.key state=present
+
+    - name: task 2
+      apt_repository: repo='deb https://pkg.jenkins.io/debian-stable binary/' state=present
+      become: yes
+
+    - name: task 3
+      become: yes
+      apt:
+        name: jenkins
+        update_cache: yes
+    - name: check jenkins running state
+      service:
+        name: jenkins
+        state: started
+
+
+
